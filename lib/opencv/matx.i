@@ -43,7 +43,7 @@
 
     %cv_numpy_add_type(type, np_basic_type)
 
-    #if !_ARRAY_##type##_INSTANTIATED_
+    #if !defined(_ARRAY_##type##_INSTANTIATED_)
         %template(_##type##Array) std::vector< type >;
         %pythoncode
         {
@@ -52,7 +52,7 @@
         #define _ARRAY_##type##_INSTANTIATED_
     #endif
 
-    #if !_CV_MATX_##type##_##d1##_##d2##_INSTANTIATED_
+    #if !defined(_CV_MATX_##type##_##d1##_##d2##_INSTANTIATED_)
         %template(_Matx_##type##_##d1##_##d2) cv::Matx< type, d1, d2>;
         %pythoncode
         %{
