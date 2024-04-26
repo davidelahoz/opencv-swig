@@ -34,7 +34,7 @@
 %}
 
 %define %cv_numpy_add_type(type, np_basic_type)
-    #if !_CV_NUMPY_##type##_
+    #if !defined(_CV_NUMPY_##type##_)
         namespace cv
         {
             %template(_cv_numpy_sizeof_##type) _SizeOf< type >;
