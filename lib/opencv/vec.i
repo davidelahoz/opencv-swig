@@ -32,7 +32,7 @@
  *  [0]: http://docs.scipy.org/doc/numpy/reference/arrays.interface.html#__array_interface__
  */
 %define %cv_vec_instantiate(type, d1, type_alias, np_basic_type)
-    #if !_CV_VEC_##type##_##d1##_INSTANTIATED_
+    #if !defined(_CV_VEC_##type##_##d1##_INSTANTIATED_)
         %cv_matx_instantiate(type, d1, 1, type_alias, np_basic_type)
         %template(_Vec_##type##_##d1) cv::Vec< type, d1>;
         %template(_DataType_Vec_##type##_##d1) cv::DataType<cv::Vec< type, d1> >;
